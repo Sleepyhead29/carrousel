@@ -17,13 +17,33 @@
   carrousel__x.addEventListener("mousedown", function () {
     carrousel.classList.remove("carrousel--activer");
   });
-
+/**
+ * Pouur ajouter...
+ */
   function ajouter_les_images_de_galerie() {
     for (const elem of galerie__img) {
-      let img = document.createElement("img");
+      ajouter_une_image_dans_carrousel(elem);
+      ajouter_un_radio_bouton_dans_carrousel();
+    }
+  }
+/**
+ * Création dynamique d'une iamge pour le carrousel
+ */
+  function ajouter_une_image_dans_carrousel(elem) {
+    let img = document.createElement("img");
       img.classList.add("carrousel__img");
       img.src = elem.src;
       carrousel__figure.appendChild(img);
-    }
+  }
+let position = 0;
+ function ajouter_un_radio_bouton_dans_carrousel(){
+    let rad = document.createElement("input");
+    rad.setAttribute('type', 'radio');
+    rad.classList.add("carrousel__rad");
+    rad.dataset.index = position;
+    position++;
+    carrousel__form.append(rad);
   }
 })();
+
+
