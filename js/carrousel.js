@@ -4,7 +4,8 @@
   let carrousel = document.querySelector(".carrousel");
   let carrousel__x = document.querySelector(".carrousel__x");
   let carrousel__figure = document.querySelector(".carrousel__figure");
-
+  let carrousel__form = document.querySelector(".carrousel__form"); // conteneur de radio bouton
+  console.log(carrousel__form.tagName);
   let galerie = document.querySelector(".galerie");
   let galerie__img = galerie.querySelectorAll("img");
 
