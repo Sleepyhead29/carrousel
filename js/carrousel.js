@@ -27,10 +27,11 @@ let ancienIndex = -1
 function ajouter_les_images_de_galerie()
 {
 
-  for (const elem of galerie__img){
-     ajouter_une_image_dans_courrousel(elem)
-     ajouter_un_radio_bouton_dans_carrousel()
-  }
+  
+}
+for (const elem of galerie__img){
+  ajouter_une_image_dans_courrousel(elem)
+  ajouter_un_radio_bouton_dans_carrousel()
 }
 
 /**
