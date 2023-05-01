@@ -7,6 +7,7 @@
   let carrousel__form = document.querySelector('.carrousel__form')
   let carrousel__boutonPlus = document.querySelector('.carrousel__bouton.plus');
   let carrousel__boutonMoins = document.querySelector('.carrousel__bouton.moins');
+  let carrousel__boutonsRadio = document.querySelector('input[type="radio"]');
   console.log(carrousel__form.tagName) // conteneur de radio-boutons
 
   let galerie = document.querySelector('.galerie')
@@ -17,6 +18,8 @@
 
      carrousel.classList.add('carrousel--activer')
      affiche_image_carrousel()
+     console.log(carrousel__boutonsRadio) // conteneur de radio-boutons
+
   })
 
   carrousel__x.addEventListener('mousedown', function(){
@@ -25,6 +28,7 @@
 
   carrousel__boutonPlus.addEventListener('click', function(){
     index++;
+    suivreImgIndex();
     if(index >= galerie__img.length)
     {
       index = 0;
@@ -33,11 +37,13 @@
   })
   carrousel__boutonMoins.addEventListener('click', function(){
     index--;
+    suivreImgIndex();
     if(index < 0)
     {
       index = galerie__img.length-1;
     }
     affiche_image_carrousel();
+    
   })
 /**
 * Pour chaque image de la galerie l'ajouter dans le carrousel
@@ -47,7 +53,7 @@ let index = 0
 let ancienIndex = -1
 /* -- boucle qui permet construire le carrousel */
   for (const elem of galerie__img){
-     elem.dataset.index = position
+     elem.dataset.index = position;
      /* en cliquant sur une image de la galerie */
      elem.addEventListener('mousedown', function(e){
         /*
@@ -106,4 +112,14 @@ function affiche_image_carrousel(){
     ancienIndex = index
 }
 
+function suivreImgIndex(){
+  console.log(carrousel__boutonsRadio);
+  for(const rad of carrousel__boutonsRadio){
+    if(rad.dataset.index){
+      rad.checked = true;
+    }else{
+      rad.checked = false;
+    }
+  }
+}
 })()
