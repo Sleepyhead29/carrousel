@@ -33,7 +33,14 @@ function creation_carrousel()
     <div class='carrousel'>
     <button class='carrousel__x'>X</button>
     <figure class='carrousel__figure'></figure>
-    <form class='carrousel__form'></form>
+    <div class = 'carrousel__boutons'>
+    <input class = 'carrousel__bouton moins' type = 'button' value = '-'> </input>
+    <input class = 'carrousel__bouton plus' type = 'button' value = '+'> </input>
+    </div>
+    <form class='carrousel__form'>
+   
+    
+    </form>
     </div> <!-- fin du carrousel -->
     ";
 }

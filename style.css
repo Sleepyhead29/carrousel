@@ -50,4 +50,12 @@
 .carrousel__rad {
   display: inline-block;
   margin: 4px;
+}
+
+.carrousel__boutons {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
 }/*# sourceMappingURL=style.css.map */

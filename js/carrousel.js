@@ -11,8 +11,10 @@
   let galerie__img = galerie.querySelectorAll('img')
 
   carrousel__ouvrir.addEventListener('mousedown', function(){
+     index=0
+
      carrousel.classList.add('carrousel--activer')
-     ajouter_les_images_de_galerie()
+     affiche_image_carrousel()
   })
 
   carrousel__x.addEventListener('mousedown', function(){
@@ -24,15 +26,24 @@
 let position = 0
 let index = 0
 let ancienIndex = -1
-function ajouter_les_images_de_galerie()
-{
+/* -- boucle qui permet construire le carrousel */
+  for (const elem of galerie__img){
+     elem.dataset.index = position
+     /* en cliquant sur une image de la galerie */
+     elem.addEventListener('mousedown', function(e){
+        /*
+        avant d'ouvrir la boîte modale il faut vérifier si elle n'est pas déjà ouverte
+        https://www.javascripttutorial.net/dom/css/check-if-an-element-contains-a-class/
 
-  
-}
-for (const elem of galerie__img){
-  ajouter_une_image_dans_courrousel(elem)
-  ajouter_un_radio_bouton_dans_carrousel()
-}
+        la fonction contains() vous permettra de faire cette vérification
+        */
+        index = e.target.dataset.index
+        affiche_image_carrousel()
+     })
+     ajouter_une_image_dans_courrousel(elem)
+     ajouter_un_radio_bouton_dans_carrousel()
+  }
+
 
 /**
 * Création dynamique d'une image pour le carrousel
@@ -56,17 +67,24 @@ function ajouter_un_radio_bouton_dans_carrousel()
   rad.dataset.index = position
   rad.addEventListener('mousedown', function(){
     index =  this.dataset.index
-    if (ancienIndex != -1){
-     carrousel__figure.children[ancienIndex].style.opacity = "0"
-    }
-    //console.log(this.dataset.index)
-    carrousel__figure.children[index].style.opacity = "1"
-    ancienIndex = index
-
-
+    affiche_image_carrousel()
   })
   position = position + 1 // incrémentation de la position
   carrousel__form.append(rad)
 }  
+/**
+* Affiche la nouvelle image du carrousel
+*/
+function affiche_image_carrousel(){
+  if (ancienIndex != -1){
+     carrousel__figure.children[ancienIndex].style.opacity = "0"
+   //carrousel__form.children[ancienIndex].checked = false
+     //carrousel__figure.children[ancienIndex].classList.remove('carrousel__img--activer')
+    }
+    //console.log(this.dataset.index)
+    carrousel__figure.children[index].style.opacity = "1"
+   // carrousel__figure.children[index].classList.add('carrousel__img--activer')
+    ancienIndex = index
+}
 
 })()
