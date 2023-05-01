@@ -6,6 +6,7 @@
   let carrousel__figure = document.querySelector('.carrousel__figure')
   let carrousel__form = document.querySelector('.carrousel__form')
   let carrousel__boutonPlus = document.querySelector('.carrousel__bouton.plus');
+  let carrousel__boutonMoins = document.querySelector('.carrousel__bouton.moins');
   console.log(carrousel__form.tagName) // conteneur de radio-boutons
 
   let galerie = document.querySelector('.galerie')
@@ -27,6 +28,14 @@
     if(index >= galerie__img.length)
     {
       index = 0;
+    }
+    affiche_image_carrousel();
+  })
+  carrousel__boutonMoins.addEventListener('click', function(){
+    index--;
+    if(index < 0)
+    {
+      index = galerie__img.length-1;
     }
     affiche_image_carrousel();
   })
