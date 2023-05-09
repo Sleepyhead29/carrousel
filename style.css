@@ -1,5 +1,5 @@
 .carrousel {
-  position: absolute;
+  position: fixed;
   width: 50%;
   height: 50%;
   top: 25%;
@@ -22,11 +22,8 @@
 }
 
 .carrousel__figure {
-  position: absolute;
   width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
+  height: 100%;
 }
 
 .carrousel__img {
@@ -34,7 +31,7 @@
   position: absolute;
   object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   opacity: 0;
 }
 
@@ -52,10 +49,19 @@
   margin: 4px;
 }
 
-.carrousel__boutons {
+.carrousel__prec, .carrousel__suiv {
   position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+  width: 30px;
+  height: 30px;
   top: 50%;
+  border: 1px solid #666;
+  border-radius: 3px;
+}
+
+.carrousel__prec {
+  left: 5px;
+}
+
+.carrousel__suiv {
+  right: 5px;
 }/*# sourceMappingURL=style.css.map */
